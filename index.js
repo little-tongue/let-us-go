@@ -60,7 +60,7 @@ async function letUsGo() {
     console.log(`第${++count}次查询`);
 
     const pets = res.data.data.petsOnSale;
-    for (let i = 0, len = pets.length; i < len; i++) {
+    for (let i = pets.length - 1; i >= 0; i--) {
       const pet = pets[i];
       if (!isWorth(pet)) {
         continue;
@@ -80,7 +80,7 @@ async function letUsGo() {
         console.warn('失败验证码出错', result.error_msg);
         continue;
       }
-      const captcha = result.words_result[0].words;
+      const captcha = result.words_result[0].words.replace(/\s/g, '');
       console.log('成功识别验证码', captcha);
 
       // 买狗
