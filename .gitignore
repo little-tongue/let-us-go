@@ -1,4 +1,5 @@
-assets
+assets/*.png
+assets/*.jpg
 
 # dependencies
 /node_modules
